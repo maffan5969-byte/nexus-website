@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Co-Living Spaces | Furnished rooms and studios in Singapore</title>
+  <meta name="description" content="Fully furnished private rooms and studio apartments in Singapore with co-working space, a gym, rooftop garden and community events.">
+  <!-- Fonts: Bricolage Grotesque for headings, Atkinson Hyperlegible (designed for low-vision readers) for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Accessibility toolbar: text size and high contrast -->
+  <div class="a11y-bar">
+    <div class="container">
+      <div class="a11y-group" role="group" aria-label="Text size">
+        <span>Text size:</span>
+        <button type="button" data-text-size="normal" aria-pressed="true">A</button>
+        <button type="button" data-text-size="large" aria-pressed="false" style="font-size:1.1em">A+</button>
+        <button type="button" data-text-size="larger" aria-pressed="false" style="font-size:1.25em">A++</button>
+      </div>
+      <button type="button" id="contrast-toggle" aria-pressed="false">High contrast</button>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html"><svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect x="6" y="4" width="28" height="34" rx="4" fill="none" stroke="#f2b705" stroke-width="3"/><rect x="12" y="10" width="6" height="6" rx="1" fill="#f2b705"/><rect x="22" y="10" width="6" height="6" rx="1" fill="#f2b705"/><rect x="12" y="20" width="6" height="6" rx="1" fill="#f2b705"/><rect x="22" y="20" width="6" height="6" rx="1" fill="#ffffff"/><rect x="17" y="30" width="6" height="8" fill="#f2b705"/></svg><span>Nexus Co-Living</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        Menu
+      </button>
+      <nav id="main-nav" class="main-nav" aria-label="Main">
+        <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="facilities.html">Facilities</a></li>
+        <li><a href="help.html">Help &amp; Advice</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Your room, your desk and your people under one roof.</h1>
+          <p>Nexus offers fully furnished rooms and studios in Singapore for young professionals, digital nomads and international students. Stay for a week or a year, with Wi-Fi, utilities and a community included.</p>
+          <div class="hero-actions">
+            <a class="btn btn--sun" href="packages.html">Compare packages</a>
+            <a class="btn btn--ghost" href="contact.html">Book a viewing</a>
+          </div>
+        </div>
+
+        <!-- Interactive building: choose a floor to see what is on it -->
+        <div class="building">
+          <p class="building-caption" id="building-caption">Choose a floor to see what is inside the building.</p>
+          <div class="roof-plants" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+          <ul class="tower" aria-labelledby="building-caption">
+            <li><button type="button" class="floor-btn" data-floor="roof" aria-pressed="false">
+              <span class="floor-level" aria-hidden="true">R</span><span>Rooftop garden</span><span class="floor-windows" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+            </button></li>
+            <li><button type="button" class="floor-btn" data-floor="gym" aria-pressed="false">
+              <span class="floor-level" aria-hidden="true">8</span><span>Gym and yoga studio</span><span class="floor-windows" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+            </button></li>
+            <li><button type="button" class="floor-btn" data-floor="rooms" aria-pressed="true">
+              <span class="floor-level" aria-hidden="true">3–7</span><span>Private rooms and studios</span><span class="floor-windows" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+            </button></li>
+            <li><button type="button" class="floor-btn" data-floor="work" aria-pressed="false">
+              <span class="floor-level" aria-hidden="true">2</span><span>Co-working and study pods</span><span class="floor-windows" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+            </button></li>
+            <li><button type="button" class="floor-btn" data-floor="lounge" aria-pressed="false">
+              <span class="floor-level" aria-hidden="true">1</span><span>Kitchens and social lounge</span><span class="floor-windows" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+            </button></li>
+            <li><button type="button" class="floor-btn" data-floor="lobby" aria-pressed="false">
+              <span class="floor-level" aria-hidden="true">G</span><span>Lobby, laundry and security</span><span class="floor-windows" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+            </button></li>
+          </ul>
+          <div class="floor-info" id="floor-info" aria-live="polite">
+            <h3>Private rooms and studios</h3>
+            <p>Fully furnished private bedrooms and studio apartments with high-speed Wi-Fi, a desk and plenty of storage.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="about-title">
+      <div class="container split">
+        <div>
+          <h2 id="about-title">About Nexus</h2>
+          <p class="lead">More people than ever are moving to Singapore to work remotely, start a new job or study. Finding a flat, furnishing it and setting up bills takes time you would rather spend settling in.</p>
+          <p>Nexus takes care of all of that. Every room is ready to move into, utilities and high-speed internet are included, and the building has everything you need to live, work and meet people. Our team is on site to help, and key-card access and 24/7 security keep the building safe.</p>
+          <a class="btn btn--ghost" href="facilities.html">See all facilities</a>
+        </div>
+        <div>
+          <h2>Who stays with us</h2>
+          <ul class="audience-list">
+            <li><strong>Young professionals</strong>Relocating for a new job and want a furnished place close to the city without a long lease.</li>
+            <li><strong>Digital nomads</strong>Need fast Wi-Fi, a proper desk and flexible stays while working remotely.</li>
+            <li><strong>International students</strong>Want quiet study pods, a safe building and a ready-made community.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tint" aria-labelledby="packages-title">
+      <div class="container">
+        <h2 id="packages-title">Accommodation options</h2>
+        <p>Every package is fully furnished with utilities included. Choose the one that fits how long you are staying and how much space you need.</p>
+        <div class="packages">
+          <article class="package package--featured">
+            <span class="tag">Most space</span>
+            <h3>Premium Stay</h3>
+            <p class="best-for">Your own studio apartment with every facility included.</p>
+            <p class="price">S$2,800 <small>per month</small></p>
+            <ul><li>Private studio apartment</li><li>Weekly cleaning</li><li>Access to all facilities</li></ul>
+            <a class="btn" href="packages.html#premium">View Premium Stay</a>
+          </article>
+          <article class="package">
+            <h3>Standard Stay</h3>
+            <p class="best-for">A private bedroom in a shared apartment.</p>
+            <p class="price">S$1,650 <small>per month</small></p>
+            <ul><li>Private bedroom</li><li>Fortnightly cleaning</li><li>Co-working space access</li></ul>
+            <a class="btn btn--ghost" href="packages.html#standard">View Standard Stay</a>
+          </article>
+          <article class="package">
+            <h3>Short-Term Stay</h3>
+            <p class="best-for">A furnished room for 1 to 4 weeks.</p>
+            <p class="price">S$650 <small>per week</small></p>
+            <ul><li>Flexible booking</li><li>Furnished room</li><li>Utilities included</li></ul>
+            <a class="btn btn--ghost" href="packages.html#short">View Short-Term Stay</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-strip" aria-labelledby="cta-title">
+      <div class="container">
+        <div>
+          <h2 id="cta-title">Not sure which option suits you?</h2>
+          <p>Tell us how long you are staying and what you need – we reply within one working day.</p>
+        </div>
+        <a class="btn" href="contact.html">Contact our team</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h2>Nexus Co-Living Spaces</h2>
+          <p>Flexible, furnished rooms and studios for young professionals, digital nomads and international students in Singapore.</p>
+          <p>88 Kallang Avenue, Singapore 339411</p>
+        </div>
+        <div>
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="facilities.html">Facilities</a></li>
+            <li><a href="help.html">Help &amp; Advice</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Get in touch</h2>
+          <ul>
+            <li><a href="tel:+6561234567">+65 6123 4567</a></li>
+            <li><a href="mailto:hello@nexuscoliving.sg">hello@nexuscoliving.sg</a></li>
+            <li>Reception open 24/7</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nexus Co-Living Spaces. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,377 @@
+/* =========================================================
+   Nexus Co-Living Spaces – main stylesheet
+   Layout: mobile-first, then wider screens use media queries
+   ========================================================= */
+
+/* ---------- 1. Colour and type variables ---------- */
+:root {
+  --palm: #0f3d3e;        /* deep green – header, footer, headings */
+  --leaf: #2e7d5b;        /* mid green – links, buttons */
+  --sun: #f2b705;         /* yellow – highlights on dark backgrounds only */
+  --mist: #eef4f1;        /* very light green – section backgrounds */
+  --white: #ffffff;
+  --ink: #1b1f23;         /* body text */
+  --muted: #4a5a57;       /* secondary text (passes 4.5:1 on white) */
+  --line: #c9d8d2;        /* borders */
+  --error: #b42318;
+
+  --font-head: "Bricolage Grotesque", "Segoe UI", sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", Arial, sans-serif;
+
+  --base-size: 1.0625rem; /* 17px body text */
+  --radius: 14px;
+  --max: 1160px;
+}
+
+/* High contrast mode (turned on by the accessibility toolbar) */
+body.high-contrast {
+  --palm: #000000;
+  --leaf: #0039a6;
+  --sun: #ffff00;
+  --mist: #ffffff;
+  --ink: #000000;
+  --muted: #000000;
+  --line: #000000;
+}
+body.high-contrast a { text-decoration: underline; }
+
+/* ---------- 2. Base styles ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Stop the sticky header covering things we scroll to */
+[id] { scroll-margin-top: 96px; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--base-size);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--white);
+}
+
+img, svg { max-width: 100%; display: block; }
+
+h1, h2, h3 {
+  font-family: var(--font-head);
+  color: var(--palm);
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+}
+h1 { font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.7rem, 3.6vw, 2.5rem); font-weight: 700; letter-spacing: -0.01em; }
+h3 { font-size: 1.3rem; font-weight: 700; }
+
+p { margin: 0 0 1em; max-width: 68ch; }
+
+a { color: var(--leaf); text-underline-offset: 3px; }
+a:hover { color: var(--palm); }
+
+/* Clear keyboard focus on every interactive element */
+:focus-visible {
+  outline: 3px solid var(--sun);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--palm);
+  border-radius: 4px;
+}
+
+.container { width: min(100% - 2rem, var(--max)); margin-inline: auto; }
+
+.section { padding: 4rem 0; }
+.section--tint { background: var(--mist); }
+
+.lead { font-size: 1.2em; color: var(--muted); }
+
+/* Hidden but still read by screen readers */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* Skip link – appears when a keyboard user presses Tab */
+.skip-link {
+  position: absolute; left: 1rem; top: -100px; z-index: 100;
+  background: var(--sun); color: #000; padding: 0.75rem 1rem;
+  font-weight: 700; border-radius: 8px;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ---------- 3. Buttons ---------- */
+.btn {
+  display: inline-block;
+  font: 700 1em var(--font-body);
+  padding: 0.85em 1.4em;
+  border-radius: 999px;
+  border: 2px solid var(--leaf);
+  background: var(--leaf);
+  color: var(--white);
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--palm); border-color: var(--palm); color: var(--white); }
+.btn--ghost { background: transparent; color: var(--leaf); }
+.btn--ghost:hover { background: var(--leaf); color: var(--white); }
+.btn--sun { background: var(--sun); border-color: var(--sun); color: #000; }
+.btn--sun:hover { background: #ffd23f; border-color: #ffd23f; color: #000; }
+
+/* ---------- 4. Accessibility toolbar ---------- */
+.a11y-bar { background: var(--ink); color: var(--white); font-size: 0.9rem; }
+.a11y-bar .container {
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1rem;
+  align-items: center; justify-content: flex-end; padding: 0.4rem 0;
+}
+.a11y-bar button {
+  font: inherit; color: var(--white); background: transparent;
+  border: 1px solid #6b7b78; border-radius: 6px; padding: 0.2rem 0.6rem; cursor: pointer;
+}
+.a11y-bar button[aria-pressed="true"] { background: var(--sun); color: #000; border-color: var(--sun); }
+.a11y-group { display: flex; gap: 0.35rem; align-items: center; }
+
+/* ---------- 5. Header and navigation ---------- */
+.site-header { background: var(--palm); color: var(--white); position: sticky; top: 0; z-index: 50; }
+.site-header .container { display: flex; align-items: center; justify-content: space-between; min-height: 72px; }
+
+.logo {
+  display: flex; align-items: center; gap: 0.6rem;
+  color: var(--white); text-decoration: none;
+  font-family: var(--font-head); font-weight: 800; font-size: 1.35rem;
+}
+.logo:hover { color: var(--sun); }
+.logo svg { width: 34px; height: 34px; }
+
+.nav-toggle {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: transparent; color: var(--white); border: 2px solid var(--white);
+  border-radius: 8px; padding: 0.45rem 0.8rem; font: 700 1rem var(--font-body); cursor: pointer;
+}
+
+.main-nav { display: none; }
+.main-nav.open {
+  display: block; position: absolute; left: 0; right: 0; top: 100%;
+  background: var(--palm); border-top: 1px solid rgba(255,255,255,.2);
+}
+.main-nav ul { list-style: none; margin: 0; padding: 0.5rem 1rem 1rem; }
+.main-nav a {
+  display: block; padding: 0.75rem 0.5rem; color: var(--white);
+  text-decoration: none; font-weight: 700;
+}
+.main-nav a:hover { color: var(--sun); }
+.main-nav a[aria-current="page"] { color: var(--sun); text-decoration: underline; text-decoration-thickness: 3px; }
+
+/* Desktop navigation */
+@media (min-width: 860px) {
+  .nav-toggle { display: none; }
+  .main-nav, .main-nav.open { display: block; position: static; border: 0; }
+  .main-nav ul { display: flex; gap: 0.5rem; padding: 0; }
+  .main-nav a { padding: 0.5rem 0.75rem; }
+}
+
+/* ---------- 6. Home page hero with the building ---------- */
+.hero { background: var(--palm); color: var(--white); padding: 3rem 0 4rem; overflow: hidden; }
+.hero h1 { color: var(--white); }
+.hero p { color: #d7e6e0; font-size: 1.15em; }
+.hero-grid { display: grid; gap: 3rem; align-items: center; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+.hero .btn--ghost { color: var(--white); border-color: var(--white); }
+.hero .btn--ghost:hover { background: var(--white); color: var(--palm); }
+
+@media (min-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr 1.05fr; }
+  .hero { padding: 5rem 0 6rem; }
+}
+
+/* The building: each floor is a button. Users pick a floor to see what is on it. */
+.building { position: relative; }
+.building-caption { font-size: 0.95rem; color: #b9d2c9; margin-bottom: 0.75rem; }
+
+.tower {
+  list-style: none; margin: 0; padding: 0;
+  border: 3px solid var(--sun); border-radius: 18px 18px 6px 6px;
+  background: #134b4c; overflow: hidden;
+}
+.floor-btn {
+  width: 100%; display: grid; grid-template-columns: 3.2rem 1fr auto; align-items: center; gap: 0.75rem;
+  padding: 0.8rem 1rem; text-align: left;
+  font: 700 1rem var(--font-body); color: var(--white);
+  background: transparent; border: 0; border-bottom: 1px dashed rgba(242,183,5,.45); cursor: pointer;
+}
+.tower li:last-child .floor-btn { border-bottom: 0; }
+.floor-level { font-family: var(--font-head); font-size: 1.1rem; color: var(--sun); }
+.floor-windows { display: flex; gap: 5px; }
+.floor-windows span { width: 14px; height: 18px; border-radius: 3px; background: #2a6667; }
+.floor-btn:hover .floor-windows span,
+.floor-btn[aria-pressed="true"] .floor-windows span { background: var(--sun); }
+.floor-btn[aria-pressed="true"] { background: #0b2f30; }
+
+.floor-info {
+  margin-top: 1rem; background: var(--white); color: var(--ink);
+  border-radius: var(--radius); padding: 1.25rem 1.4rem; min-height: 8.5rem;
+}
+.floor-info h3 { margin-bottom: 0.3rem; }
+.hero .floor-info p { margin: 0; color: var(--ink); font-size: 1em; }
+
+.roof-plants { display: flex; justify-content: space-around; padding: 0 1.5rem; height: 26px; }
+.roof-plants span {
+  width: 26px; height: 26px; background: var(--leaf); border-radius: 50% 50% 0 0;
+  border: 2px solid var(--sun); border-bottom: 0;
+}
+
+/* ---------- 7. Generic grids and content blocks ---------- */
+.split { display: grid; gap: 2rem; }
+@media (min-width: 860px) { .split { grid-template-columns: 1fr 1fr; align-items: start; } }
+
+.audience-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.25rem; }
+.audience-list li { border-left: 4px solid var(--leaf); padding-left: 1rem; }
+.audience-list strong { display: block; font-family: var(--font-head); font-size: 1.15rem; color: var(--palm); }
+
+/* ---------- 8. Package cards ---------- */
+.packages { display: grid; gap: 1.5rem; margin-top: 2rem; }
+@media (min-width: 760px) { .packages { grid-template-columns: repeat(3, 1fr); } }
+
+.package {
+  display: flex; flex-direction: column;
+  background: var(--white); border: 2px solid var(--line); border-radius: var(--radius);
+  padding: 1.75rem;
+}
+.package--featured { border-color: var(--palm); box-shadow: 8px 8px 0 var(--sun); }
+.package .tag {
+  align-self: flex-start; background: var(--sun); color: #000;
+  font-weight: 700; font-size: 0.85rem; padding: 0.15rem 0.6rem; border-radius: 999px; margin-bottom: 0.75rem;
+}
+.package .price { font-family: var(--font-head); font-size: 2rem; font-weight: 800; color: var(--palm); margin: 0.25rem 0 0; }
+.package .price small { font-family: var(--font-body); font-size: 0.95rem; font-weight: 400; color: var(--muted); }
+.package .best-for { color: var(--muted); }
+.package ul { padding-left: 1.2rem; margin: 1rem 0 1.5rem; flex-grow: 1; }
+.package li { margin-bottom: 0.35rem; }
+
+.custom-package {
+  margin-top: 2rem; padding: 2rem; border-radius: var(--radius);
+  background: var(--palm); color: var(--white);
+  display: grid; gap: 1rem; align-items: center;
+}
+.custom-package h3 { color: var(--sun); }
+.custom-package p { color: #d7e6e0; margin: 0; }
+@media (min-width: 760px) { .custom-package { grid-template-columns: 1fr auto; } }
+
+/* Comparison table – scrolls sideways on small phones */
+.table-wrap { overflow-x: auto; margin-top: 2rem; border: 2px solid var(--line); border-radius: var(--radius); }
+table { border-collapse: collapse; width: 100%; min-width: 600px; background: var(--white); }
+caption { text-align: left; padding: 1rem; font-weight: 700; color: var(--palm); }
+th, td { padding: 0.8rem 1rem; text-align: left; border-top: 1px solid var(--line); }
+thead th { background: var(--palm); color: var(--white); }
+tbody th { font-weight: 700; }
+td.yes::before { content: "✓ "; color: var(--leaf); font-weight: 700; }
+td.no { color: var(--muted); }
+
+/* ---------- 9. Package finder (help and advice) ---------- */
+.finder { background: var(--white); border: 2px solid var(--palm); border-radius: var(--radius); padding: 1.75rem; }
+.finder fieldset { border: 0; padding: 0; margin: 0 0 1.25rem; }
+.finder legend { font-weight: 700; margin-bottom: 0.5rem; font-size: 1.05em; }
+.choice { display: flex; align-items: center; gap: 0.6rem; padding: 0.35rem 0; }
+.choice input { width: 1.25rem; height: 1.25rem; accent-color: var(--leaf); }
+.finder-result {
+  margin-top: 1.25rem; padding: 1.25rem; border-radius: 10px; background: var(--mist);
+  border-left: 6px solid var(--sun);
+}
+.finder-result:empty { display: none; }
+
+/* ---------- 10. Facilities ---------- */
+.facility-groups { display: grid; gap: 2.5rem; }
+.facility-list { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 1rem; }
+@media (min-width: 640px) { .facility-list { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 980px) { .facility-list { grid-template-columns: repeat(3, 1fr); } }
+.facility {
+  display: grid; grid-template-columns: 48px 1fr; gap: 0.9rem; align-items: start;
+  padding: 1.1rem; background: var(--white); border-radius: 10px; border: 1px solid var(--line);
+}
+.facility svg { width: 48px; height: 48px; color: var(--leaf); }
+.facility h3 { font-size: 1.1rem; margin-bottom: 0.2rem; }
+.facility p { margin: 0; color: var(--muted); font-size: 0.97em; }
+
+.events { list-style: none; padding: 0; margin: 1rem 0 0; }
+.events li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding: 0.9rem 0; border-top: 1px solid var(--line); }
+.events strong { color: var(--palm); }
+
+/* ---------- 11. Help page – FAQ accordion ---------- */
+.faq details { border-bottom: 1px solid var(--line); padding: 0.25rem 0; }
+.faq summary {
+  cursor: pointer; font-weight: 700; padding: 0.9rem 2rem 0.9rem 0; list-style: none; position: relative;
+  color: var(--palm);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; position: absolute; right: 0.25rem; top: 0.65rem;
+  font-size: 1.5rem; color: var(--leaf);
+}
+.faq details[open] summary::after { content: "–"; }
+.faq details p { color: var(--ink); }
+
+.tips { counter-reset: tip; list-style: none; padding: 0; margin: 0; }
+.tips li { counter-increment: tip; position: relative; padding: 0 0 1.25rem 3rem; }
+.tips li::before {
+  content: counter(tip); position: absolute; left: 0; top: 0;
+  width: 2rem; height: 2rem; border-radius: 50%; background: var(--sun); color: #000;
+  font-weight: 700; display: grid; place-items: center;
+}
+
+/* ---------- 12. Contact form ---------- */
+.form { display: grid; gap: 1.1rem; }
+.form-row { display: grid; gap: 1.1rem; }
+@media (min-width: 640px) { .form-row { grid-template-columns: 1fr 1fr; } }
+.field label { display: block; font-weight: 700; margin-bottom: 0.3rem; }
+.field .hint { display: block; font-size: 0.9em; color: var(--muted); margin-bottom: 0.3rem; }
+.field input, .field select, .field textarea {
+  width: 100%; font: inherit; padding: 0.75rem 0.85rem;
+  border: 2px solid #7a8d88; border-radius: 8px; background: var(--white); color: var(--ink);
+}
+.field textarea { min-height: 150px; resize: vertical; }
+.field input[aria-invalid="true"], .field select[aria-invalid="true"], .field textarea[aria-invalid="true"] {
+  border-color: var(--error);
+}
+.error-msg { color: var(--error); font-weight: 700; font-size: 0.95em; margin-top: 0.3rem; }
+.error-msg:empty { display: none; }
+.required { color: var(--error); }
+
+.form-summary {
+  border: 3px solid var(--error); border-radius: 10px; padding: 1rem 1.25rem; background: #fff5f4;
+}
+.form-summary ul { margin: 0.5rem 0 0; }
+.form-success {
+  border: 3px solid var(--leaf); border-radius: 10px; padding: 1.25rem; background: var(--mist);
+}
+
+.contact-details { list-style: none; padding: 0; margin: 0; }
+.contact-details li { padding: 0.8rem 0; border-top: 1px solid var(--line); }
+.contact-details strong { display: block; color: var(--palm); }
+
+/* ---------- 13. Page banner (inner pages) ---------- */
+.page-banner { background: var(--palm); color: var(--white); padding: 3rem 0; }
+.page-banner h1 { color: var(--white); font-size: clamp(2rem, 5vw, 3.2rem); }
+.page-banner p { color: #d7e6e0; font-size: 1.15em; margin: 0; }
+
+/* ---------- 14. Call to action strip ---------- */
+.cta-strip { background: var(--sun); padding: 3rem 0; }
+.cta-strip .container { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: space-between; }
+.cta-strip h2 { margin: 0; color: #000; }
+.cta-strip p { margin: 0.4rem 0 0; color: #000; }
+.cta-strip .btn { background: var(--palm); border-color: var(--palm); }
+.cta-strip .btn:hover { background: #000; border-color: #000; }
+
+/* ---------- 15. Footer ---------- */
+.site-footer { background: var(--ink); color: #d9e2df; padding: 3rem 0 1.5rem; font-size: 0.95rem; }
+.footer-grid { display: grid; gap: 2rem; }
+@media (min-width: 760px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
+.site-footer h2 { color: var(--white); font-size: 1.1rem; }
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer li { margin-bottom: 0.4rem; }
+.site-footer a { color: #d9e2df; }
+.site-footer a:hover { color: var(--sun); }
+.footer-bottom { border-top: 1px solid #3a4441; margin-top: 2rem; padding-top: 1.25rem; }
+
+/* ---------- 16. Respect users who turn off animation ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
