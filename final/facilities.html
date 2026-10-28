@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facilities | Nexus Co-Living Spaces</title>
+  <meta name="description" content="Co-working spaces, high-speed Wi-Fi, rooftop garden, gym, yoga studio, study pods and 24/7 security at Nexus Co-Living Spaces.">
+  <!-- Fonts are stored with the website (fonts folder) so no extra connection to Google is needed.
+       The two fonts used first are preloaded so text appears quickly. -->
+  <link rel="preload" href="fonts/atkinson-hyperlegible-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/bricolage-grotesque-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Accessibility toolbar: text size and high contrast -->
+  <div class="a11y-bar" role="region" aria-label="Accessibility settings">
+    <div class="container">
+      <div class="a11y-group" role="group" aria-label="Text size">
+        <span>Text size:</span>
+        <button type="button" data-text-size="normal" aria-pressed="true">A</button>
+        <button type="button" data-text-size="large" aria-pressed="false" style="font-size:1.1em">A+</button>
+        <button type="button" data-text-size="larger" aria-pressed="false" style="font-size:1.25em">A++</button>
+      </div>
+      <button type="button" id="contrast-toggle" aria-pressed="false">High contrast</button>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html"><svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect x="6" y="4" width="28" height="34" rx="4" fill="none" stroke="#f2b705" stroke-width="3"/><rect x="12" y="10" width="6" height="6" rx="1" fill="#f2b705"/><rect x="22" y="10" width="6" height="6" rx="1" fill="#f2b705"/><rect x="12" y="20" width="6" height="6" rx="1" fill="#f2b705"/><rect x="22" y="20" width="6" height="6" rx="1" fill="#ffffff"/><rect x="17" y="30" width="6" height="8" fill="#f2b705"/></svg><span>Nexus Co-Living</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        Menu
+      </button>
+      <nav id="main-nav" class="main-nav" aria-label="Main">
+        <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="facilities.html" aria-current="page">Facilities</a></li>
+        <li><a href="help.html">Help &amp; Advice</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <main id="main">
+    <section class="page-banner">
+      <div class="container">
+        <h1>Facilities</h1>
+        <p>Everything you need to live, work and relax is in the same building.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container facility-groups">
+        <div>
+          <h2>Living</h2>
+          <ul class="facility-list"><li class="facility"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 34V14M4 26h40v8M44 34v-8M10 26v-6a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v6"/></svg><div><h3>Fully furnished private rooms</h3><p>Bed, wardrobe, desk, chair and storage in every room – just bring your suitcase.</p></div></li><li class="facility"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 8v12a4 4 0 0 0 8 0V8M18 8v32M32 8c-4 2-4 10 0 14v18"/></svg><div><h3>Communal kitchens and dining</h3><p>Fully equipped kitchens on every residential floor with shared dining tables.</p></div></li><li class="facility"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="10" y="6" width="28" height="36" rx="3"/><circle cx="24" cy="26" r="8"/><path d="M14 12h4"/></svg><div><h3>Laundry rooms</h3><p>Washers and dryers you can book and pay for through the resident app.</p></div></li></ul>
+        </div>
+        <div>
+          <h2>Working and studying</h2>
+          <ul class="facility-list"><li class="facility"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 20h36M10 20v18M38 20v18M16 20v-8h16v8M22 12V9h4v3"/></svg><div><h3>Shared co-working spaces</h3><p>Hot desks, monitors to borrow and bookable meeting rooms on level 2.</p></div></li><li class="facility"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 20a23 23 0 0 1 32 0M14 26a14 14 0 0 1 20 0M20 32a6 6 0 0 1 8 0"/><circle cx="24" cy="37" r="1.8"/></svg><div><h3>High-speed Wi-Fi throughout</h3><p>Fast fibre Wi-Fi in every room and shared space, included in all packages.</p></div></li><li class="facility"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 40V18a14 14 0 0 1 28 0v22M10 40h28M18 30h12"/></svg><div><h3>Study pods</h3><p>Soundproof pods for video calls, online exams and quiet focus time.</p></div></li></ul>
+        </div>
+        <div>
+          <h2>Wellbeing and community</h2>
+          <ul class="facility-list"><li class="facility"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M24 42V22M24 22c0-8 6-12 14-12 0 8-6 12-14 12zM24 28c0-6-5-10-12-10 0 6 5 10 12 10zM16 42h16"/></svg><div><h3>Rooftop garden</h3><p>A shaded green space with seating and city views, open from 6am to midnight.</p></div></li><li class="facility"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 24h36M10 16v16M16 12v24M32 12v24M38 16v16"/></svg><div><h3>Gym and yoga studio</h3><p>Open 24/7 with key-card access, plus free weekly yoga classes.</p></div></li><li class="facility"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 22v14h32V22M8 22a4 4 0 0 1 8 0v6h16v-6a4 4 0 0 1 8 0M12 36v4M36 36v4"/></svg><div><h3>Social lounge</h3><p>Sofas, board games, a projector and space to meet other residents.</p></div></li></ul>
+        </div>
+        <div>
+          <h2>Safety and security</h2>
+          <ul class="facility-list"><li class="facility"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="11" y="21" width="26" height="20" rx="3"/><path d="M16 21v-6a8 8 0 0 1 16 0v6M24 29v5"/></svg><div><h3>24/7 security and key-card access</h3><p>Staffed reception, CCTV in shared areas and key cards for every entrance and floor.</p></div></li><li class="facility"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="8" y="10" width="32" height="30" rx="3"/><path d="M8 18h32M16 6v8M32 6v8M16 26h4M28 26h4M16 33h4"/></svg><div><h3>Weekly community events</h3><p>Free events every week to help you meet people and settle into Singapore.</p></div></li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tint" aria-labelledby="events-title">
+      <div class="container split">
+        <div>
+          <h2 id="events-title">A typical week of events</h2>
+          <p>Events are free for residents. Premium Stay residents also get a monthly pass for paid trips and workshops.</p>
+        </div>
+        <ul class="events">
+          <li><strong>Monday</strong><span>Morning yoga in the studio</span></li>
+          <li><strong>Wednesday</strong><span>Community dinner in the shared kitchen</span></li>
+          <li><strong>Thursday</strong><span>Career and networking evening in the co-working space</span></li>
+          <li><strong>Friday</strong><span>Sunset social on the rooftop garden</span></li>
+          <li><strong>Sunday</strong><span>Explore Singapore walking tour</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="access-title">
+      <div class="container">
+        <h2 id="access-title">Accessibility in the building</h2>
+        <p>The building has step-free access, lifts to every floor and accessible rooms on level 3. If you have specific requirements, <a href="contact.html?type=custom">contact us about a custom package</a> and we will discuss how we can support you before you move in.</p>
+      </div>
+    </section>
+
+    <section class="cta-strip" aria-labelledby="cta-title">
+      <div class="container">
+        <div>
+          <h2 id="cta-title">Not sure which option suits you?</h2>
+          <p>Tell us how long you are staying and what you need – we reply within one working day.</p>
+        </div>
+        <a class="btn" href="contact.html">Contact our team</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h2>Nexus Co-Living Spaces</h2>
+          <p>Flexible, furnished rooms and studios for young professionals, digital nomads and international students in Singapore.</p>
+          <p>88 Kallang Avenue, Singapore 339411</p>
+        </div>
+        <div>
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="facilities.html">Facilities</a></li>
+            <li><a href="help.html">Help &amp; Advice</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Get in touch</h2>
+          <ul>
+            <li><a href="tel:+6561234567">+65 6123 4567</a></li>
+            <li><a href="mailto:hello@nexuscoliving.sg">hello@nexuscoliving.sg</a></li>
+            <li>Reception open 24/7</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nexus Co-Living Spaces. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
